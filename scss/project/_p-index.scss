@@ -1,0 +1,478 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+/* ----------------------------------------------------------------------------------------------------
+*	MV
+* --------------------------------------------------------------------------------------------------*/
+.p-top-mv {
+	position: relative;
+	padding-bottom: 4rem;
+	.swiper-pagination-bullet {
+		width: 10px !important;
+		height: 10px !important;
+		@include mq(m) {
+			width: 6px !important;
+			height: 6px !important;
+		}
+	}
+}
+/* ----------------------------------------------------------------------------------------------------
+*	セール
+* --------------------------------------------------------------------------------------------------*/
+.p-top-sale {
+	padding: 8rem 0;
+	@include mq(m) {
+		padding: 4rem 0 10rem;
+	}
+	.p-sale__list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.p-sale__item {
+			box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.4);
+			width: 51rem;
+			margin-top: 4rem;
+			@include mq(m) {
+				width: 100%;
+				margin-top: 2rem;
+			}
+			.p-img-wrapper {
+				aspect-ratio: 510/193;
+				overflow: hidden;
+				@include mq(m) {
+					aspect-ratio: 315/119;
+				}
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			a {
+				width: 100%;
+				height: 100%;
+				display: block;
+				text-decoration: none;
+				color: currentColor;
+				@include hover;
+			}
+		}
+	}
+}
+
+/* ----------------------------------------------------------------------------------------------------
+*	おすすめ
+* --------------------------------------------------------------------------------------------------*/
+.p-top-reccomend {
+	padding: 6rem 0 17rem;
+	@include mq(m) {
+		padding: 4rem 0;
+	}
+	.p-reccomend__list {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 2.4rem;
+		@include mq(m) {
+			margin-top: 0;
+		}
+		.p-reccomend__item {
+			color: #fff;
+			font-weight: $demibold;
+			width: 34rem;
+			margin: 2rem 3rem 0 0;
+			@include mq(m) {
+				width: auto;
+				margin: 3.5rem 0 0;
+			}
+			&:nth-of-type(3n) {
+				margin-right: 0;
+			}
+			a {
+				text-decoration: none;
+				color: currentColor;
+				@include hover;
+				display: inline-block;
+			}
+			.p-img-wrapper {
+				aspect-ratio: 340/398;
+				box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.4);
+				overflow: hidden;
+				@include mq(m) {
+					aspect-ratio: 315/200;
+				}
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			.p-item__body {
+				padding-top: 2rem;
+				@include mq(m) {
+					padding-top: 1.8rem;
+				}
+				.c-ttl {
+					font-weight: inherit;
+					font-size: 1.8rem;
+					line-height: 1.4;
+					@include mq(m) {
+						font-size: 1.6rem;
+					}
+				}
+				.c-txt {
+					font-size: 2rem;
+					@include mq(m) {
+						font-size: 1.8rem;
+						line-height: 1.2;
+					}
+				}
+				.c-ttl + .c-txt {
+					margin-top: 1rem;
+					@include mq(m) {
+						margin-top: 0.8rem;
+					}
+				}
+			}
+		}
+	}
+}
+/* ----------------------------------------------------------------------------------------------------
+*	ランキング
+* --------------------------------------------------------------------------------------------------*/
+.p-top-ranking {
+	padding: 14.5rem 0 10.2rem;
+	@include mq(m) {
+		padding: 4rem 0;
+	}
+	a {
+		color: currentColor;
+		text-decoration: none;
+		@include hover;
+		display: inline-block;
+	}
+	.p-ranking__list {
+		display: flex;
+		flex-wrap: wrap;
+		@include mq(m) {
+			display: block;
+			padding: 0 2rem;
+		}
+	}
+	.p-ranking__item {
+		font-weight: $demibold;
+		margin: 2rem 1.2rem 0 0;
+		width: 26.1rem;
+		@include mq(m) {
+			width: 100%;
+			margin: 3rem 0 0;
+		}
+		.p-ranking__content {
+			position: relative;
+			.p-ranking__num {
+				position: absolute;
+				top: -1rem;
+				left: 1rem;
+				width: 5.8rem;
+				height: 6.5rem;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center center;
+				filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3));
+				display: grid;
+				justify-content: center;
+				padding-top: 1rem;
+				font-size: 3rem;
+				color: #fff;
+				@include mq(m) {
+					padding-top: 0.8rem;
+					font-size: 2.3rem;
+					width: 4.5rem;
+					height: 5.1rem;
+				}
+			}
+			.p-item__body {
+				padding-top: 2rem;
+				@include mq(m) {
+					padding-top: 0.8rem;
+				}
+				.c-ttl {
+					font-weight: inherit;
+					font-size: 1.7rem;
+					line-height: 1.4;
+				}
+				.c-txt {
+					font-size: 1.9rem;
+					line-height: 1.2;
+				}
+				.p-img-wrapper {
+					aspect-ratio: 261/248;
+					overflow: hidden;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+				.c-ttl + .c-txt {
+					margin-top: 1.6rem;
+					@include mq(m) {
+						margin-top: 0.8rem;
+					}
+				}
+			}
+		}
+		&:nth-of-type(1) {
+			.p-ranking__num {
+				background-image: url(#{$imgPath}common/bg_rank01.svg);
+			}
+		}
+		&:nth-of-type(2) {
+			.p-ranking__num {
+				background-image: url(#{$imgPath}common/bg_rank02.svg);
+			}
+		}
+		&:nth-of-type(3) {
+			.p-ranking__num {
+				background-image: url(#{$imgPath}common/bg_rank03.svg);
+			}
+		}
+		&:nth-of-type(4) {
+			.p-ranking__num {
+				background-image: url(#{$imgPath}common/bg_rank04.svg);
+			}
+		}
+		&:nth-of-type(4n) {
+			margin-right: 0;
+		}
+	}
+}
+
+/* ----------------------------------------------------------------------------------------------------
+*	伊江牛について
+* --------------------------------------------------------------------------------------------------*/
+.p-top-about-iegyu {
+	border-top: 1px solid #c9c9c9;
+	padding: 7.6rem 0 9.5rem;
+	@include mq(m) {
+		border-top: none;
+		padding: 6rem 0 8rem;
+	}
+	.p-link-wrapper {
+		margin-top: 6rem;
+		text-align: center;
+		@include mq(m) {
+			margin-top: 4.7rem;
+		}
+	}
+}
+.p-about-iegyu__list {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3.7rem;
+	@include mq(m) {
+		display: block;
+		margin-top: 2.6rem;
+	}
+}
+.p-about-iegyu__item {
+	font-weight: $demibold;
+	width: 52.5rem;
+	height: 33.3rem;
+	box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.4);
+	@include mq(m) {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 315/155;
+	}
+	a {
+		text-decoration: none;
+		color: currentColor;
+		@include hover;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+.p-about-iegyu__content {
+	width: 100%;
+	height: 100%;
+	.p-img-wrapper {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	position: relative;
+	.p-txt-wrapper {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: grid;
+		place-content: center;
+		.c-ttl {
+			font-weight: inherit;
+			text-align: center;
+			line-height: 1.8;
+			font-size: 3rem;
+			color: #fff;
+			@include mq(m) {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+.p-about-iegyu__item + .p-about-iegyu__item {
+	@include mq(m) {
+		margin-top: 3.6rem;
+	}
+}
+/* ----------------------------------------------------------------------------------------------------
+*	カテゴリー
+* --------------------------------------------------------------------------------------------------*/
+.p-top-category {
+	border-top: 1px solid #c9c9c9;
+	padding: 7rem 0 5rem;
+	.p-link-wrapper {
+		margin-top: 5.3rem;
+		text-align: center;
+		@include mq(m) {
+			margin-top: 4rem;
+		}
+	}
+}
+.p-category__list {
+	display: flex;
+	flex-wrap: wrap;
+	@include mq(m) {
+		justify-content: space-between;
+	}
+}
+.p-category__item {
+	width: 32rem;
+	margin: 5.3rem 6rem 0 0;
+	@include mq(m) {
+		width: 47.6%;
+		margin: 3rem 0 0;
+	}
+	&:nth-of-type(3n) {
+		margin-right: 0;
+	}
+	a {
+		display: block;
+		color: currentColor;
+		text-decoration: none;
+		@include hover;
+	}
+}
+.p-category__content {
+	@include mq(m) {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.p-cateogry__ttl {
+		font-size: 2rem;
+		text-align: center;
+		font-weight: $demibold;
+		line-height: 1.4;
+		@include mq(m) {
+			text-align: left;
+			font-size: 1.4rem;
+			margin-top: 0.5rem;
+			letter-spacing: normal;
+		}
+	}
+	.p-img-wrapper {
+		margin-top: 0.6rem;
+		overflow: hidden;
+		aspect-ratio: 320/186;
+		box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.3);
+		@include mq(m) {
+			margin-top: 0;
+			aspect-ratio: 150/110;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+/* ----------------------------------------------------------------------------------------------------
+*	おしらせ
+* --------------------------------------------------------------------------------------------------*/
+.p-top-info {
+	padding: 10rem 0 15rem;
+	@include mq(m) {
+		padding: 5rem 0 8rem;
+	}
+}
+.p-top-info__content {
+	padding: 2.4rem 6.6rem 2.5rem;
+	background-color: #fff;
+	box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.3);
+	@include mq(m) {
+		padding: 4rem 2rem;
+	}
+	.p-link-wrapper {
+		margin-top: 3rem;
+		text-align: right;
+		@include mq(m) {
+			margin-top: 4rem;
+			text-align: center;
+		}
+	}
+}
+.p-info__list {
+	width: 90rem;
+	margin: 4rem auto 0;
+	@include mq(m) {
+		width: auto;
+		margin-top: 0.5rem;
+	}
+}
+.p-info__item {
+	border-bottom: 1px solid #c9c9c9;
+	padding: 1.2rem 2rem;
+	@include mq(m) {
+		padding: 2rem 0;
+	}
+	a {
+		color: currentColor;
+		text-decoration: none;
+		display: block;
+		height: 100%;
+		@include hover;
+	}
+}
+.p-info__content {
+	display: flex;
+	@include mq(m) {
+		display: block;
+	}
+	time {
+		font-size: 1.4rem;
+		flex-shrink: 0;
+		margin-right: 1.9rem;
+		padding-top: 0.3rem;
+		@include mq(m) {
+			padding-top: 0;
+			margin-right: 0;
+		}
+	}
+	.c-info__ttl {
+		font-size: 1.7rem;
+		font-weight: inherit;
+		line-height: 1.4;
+		@include mq(m) {
+			font-size: 1.5rem;
+		}
+	}
+	time + .c-info__ttl {
+		@include mq(m) {
+			margin-top: 0.5rem;
+		}
+	}
+}

@@ -1,0 +1,50 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+
+.p-breadcrumb {
+	padding: 1.5rem 0;
+	@include mq(m) {
+		padding: 1rem 0;
+	}
+	&.u-padding--wide {
+		padding: 2.6rem 0;
+	}
+}
+.p-breadcrumb__list {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1.3rem;
+	font-weight: $demibold;
+	align-items: center;
+}
+.p-breadcrumb__item {
+	line-height: 1.4;
+	span {
+		display: inline-block;
+	}
+	img {
+		position: relative;
+		top: -0.2rem;
+		width: 1.79rem;
+		height: auto;
+		vertical-align: middle;
+		display: inline-block;
+	}
+	a {
+		@include hover;
+		text-decoration: none;
+		color: currentColor;
+		position: relative;
+		padding-right: 1rem;
+		@include mq(m) {
+			padding-right: 0.5rem;
+		}
+		&::after {
+			padding-left: 1rem;
+			@include mq(m) {
+				padding-left: 0.5rem;
+			}
+			content: ">";
+		}
+	}
+}

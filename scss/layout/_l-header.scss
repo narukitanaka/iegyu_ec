@@ -1,0 +1,488 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+
+.l-header {
+	height: 10rem;
+	position: fixed;
+	padding-top: 2.3rem;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: #fff;
+	z-index: 1000;
+	@include mq(m) {
+		padding-top: 0;
+		height: 8rem;
+		padding: 1.7rem;
+	}
+}
+.l-header__inner {
+	height: 100%;
+	max-width: 134rem;
+	margin: 0 auto;
+	box-sizing: content-box;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	min-width: 130rem;
+	@include mq(m) {
+		height: auto;
+		max-width: inherit;
+		min-width: inherit;
+		width: auto;
+		padding: 0;
+		box-sizing: border-box;
+	}
+}
+// ヘッダーロゴ
+.l-header__logo-wrapper {
+	display: flex;
+	@include mq(m) {
+		display: inline-flex;
+		align-items: center;
+		flex-direction: column;
+	}
+	.p-txt-wrapper {
+		display: inline-flex;
+		flex-direction: column;
+		padding-top: 1rem;
+		@include mq(m) {
+			padding-top: 0;
+		}
+		.c-txt {
+			font-size: 2rem;
+			font-weight: $demibold;
+			line-height: 1.4;
+			letter-spacing: normal;
+			@include mq(m) {
+				display: none;
+			}
+		}
+		.c-en {
+			font-size: 1.4rem;
+			line-height: 1;
+			@include mq(m) {
+				font-size: 1.3rem;
+				letter-spacing: normal;
+			}
+		}
+	}
+}
+.l-header__logo {
+	width: 18.3rem;
+	margin-right: 1.6rem;
+	@include mq(m) {
+		width: 11.4rem;
+		margin-right: 0;
+	}
+	a {
+		text-decoration: none;
+		color: currentColor;
+		@include hover;
+	}
+}
+.l-header__content {
+	display: flex;
+	height: 100%;
+}
+.l-header__nav-content {
+	display: flex;
+	margin-left: auto;
+	@include mq(m) {
+		background: url(#{$imgPath}common/bg_menu.png) #fafafa no-repeat left 2rem bottom 11rem/120% auto;
+		display: none;
+		top: 8rem;
+		position: absolute;
+		height: 100vh;
+		height: 100svh;
+		overflow: auto;
+		width: 100%;
+		padding: 2.5rem 3rem 24rem;
+		left: 0;
+		right: 0;
+		scroll-behavior: smooth;
+
+		&.is-nav-open {
+			display: block;
+		}
+	}
+}
+// ナビゲーション
+.l-header__nav {
+	height: 100%;
+	@include mq(m) {
+		height: auto;
+	}
+}
+.l-header__nav-item {
+	height: 100%;
+	@include mq(m) {
+		height: auto;
+	}
+	&.js-has-subnav .l-header__nav-link span {
+		position: relative;
+		display: inline-block;
+		&::after {
+			content: "";
+			position: absolute;
+			width: 1rem;
+			height: 1rem;
+			border-right: 1px solid $border-color;
+			border-bottom: 1px solid $border-color;
+			bottom: -1.4rem;
+			left: 50%;
+			transform: translateX(-50%) rotate(45deg);
+			@include mq(m) {
+				display: none;
+			}
+		}
+	}
+}
+.l-header__nav-list {
+	font-size: 1.6rem;
+	display: flex;
+	height: 100%;
+	font-weight: $demibold;
+	@include mq(m) {
+		display: block;
+		height: auto;
+		font-size: 2rem;
+	}
+}
+.l-header__nav-link {
+	color: currentColor;
+	text-decoration: none;
+	padding: 2.4rem 2rem 0;
+	@include hover;
+	cursor: pointer;
+	height: 100%;
+	display: block;
+	position: relative;
+	letter-spacing: normal;
+	@include mq(m) {
+		padding: 1.5rem 0;
+	}
+}
+// 検索
+.l-header__search-content {
+	margin-left: 2rem;
+	padding-top: 1rem;
+	@include mq(m) {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		left: 0;
+		right: 0;
+		margin-left: 0;
+		padding: 2rem 3rem;
+		background-color: #fff;
+	}
+}
+.l-header__search-inner {
+	border: 1px solid $border-color;
+	display: inline-flex;
+	align-items: center;
+	width: 20rem;
+	@include mq(m) {
+		width: 100%;
+	}
+	input[type="text"] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: transparent;
+		border: none;
+		border-radius: 0;
+		font: inherit;
+		outline: none;
+		width: 100%;
+		border: none;
+		outline: none;
+		font: inherit;
+		color: currentColor;
+		flex-grow: 1;
+		line-height: normal;
+		font-size: 1.6rem;
+		padding: 1rem;
+		@include mq(m) {
+			padding: 1.4rem 1rem;
+		}
+	}
+	::placeholder {
+		font-size: 1.3rem;
+	}
+}
+// firefox
+.mac.gecko .l-header__search-inner input[type="text"] {
+	padding: 0.5rem;
+}
+.c-icn-search {
+	width: 1.3rem;
+	box-sizing: content-box;
+	height: 100%;
+	padding-right: 0.8rem;
+}
+// 電話番号
+.l-header__tel-content {
+	margin-left: 4rem;
+	@include mq(m) {
+		margin: 4rem 0 0;
+	}
+	.p-tel {
+		display: inline-flex;
+		text-decoration: none;
+		color: currentColor;
+		align-items: center;
+		.c-icn {
+			border: 1px solid $border-color;
+			border-radius: 100px;
+			width: 5rem;
+			height: 5rem;
+			display: grid;
+			place-content: center;
+			margin-right: 1.4rem;
+			flex-shrink: 0;
+			@include mq(m) {
+				width: 6.4rem;
+				height: 6.4rem;
+			}
+			img {
+				width: 2.3rem;
+				height: auto;
+				@include mq(m) {
+					width: 2.98rem;
+				}
+			}
+		}
+		.c-ttl {
+			font-size: 1.3rem;
+			line-height: 1;
+			@include mq(m) {
+				font-size: 1.5rem;
+			}
+		}
+		.c-tel-num {
+			font-size: 2.8rem;
+			line-height: 1;
+			padding-top: 0.5rem;
+			@include mq(m) {
+				font-size: 3.1rem;
+			}
+		}
+		.c-hour {
+			font-size: 0.9rem;
+			@include mq(m) {
+				font-size: 1.1rem;
+			}
+		}
+	}
+}
+.l-header__right-content {
+	display: flex;
+	@include mq(m) {
+		margin-left: auto;
+	}
+}
+// カート
+.l-header__cart-content {
+	margin-left: 3rem;
+	padding-top: 0.5rem;
+	@include mq(m) {
+		margin-left: 0;
+	}
+	.p-cart {
+		display: inline-flex;
+		flex-direction: column;
+		color: currentColor;
+		text-decoration: none;
+		align-items: center;
+		@include hover;
+		.c-icn {
+			display: inline-block;
+			width: 3.5rem;
+			img {
+				width: 100%;
+				height: auto;
+			}
+			@include mq(m) {
+				width: 2.59rem;
+			}
+		}
+		.c-txt {
+			font-size: 1.4rem;
+			@include mq(m) {
+				font-size: 1rem;
+			}
+		}
+	}
+}
+// スマホのセカンダリーナビゲーション
+.l-header__sp-secondary-nav-content {
+	display: none;
+	margin-top: 2.5rem;
+	@include mq(m) {
+		display: block;
+	}
+}
+.p-secondary-nav {
+	font-size: 1.4rem;
+	font-weight: $demibold;
+}
+.p-secondary-nav__link {
+	text-decoration: none;
+	color: currentColor;
+	padding: 1rem 0;
+	display: block;
+}
+// ハンバーガーメニュー
+.l-header__ham-content {
+	display: none;
+	@include mq(m) {
+		display: inline-flex;
+		align-items: center;
+		flex-direction: column;
+		width: 5rem;
+		padding-top: 0.8rem;
+		margin-left: 1rem;
+	}
+	&.is-ham-open {
+		.p-hamburger .c-line {
+			&:first-of-type {
+				animation: line1-open var(--navTransition) forwards;
+			}
+			&:nth-of-type(2) {
+				top: 50%;
+				animation: line2-open var(--navTransition) forwards;
+			}
+			&:last-of-type {
+				top: 100%;
+				animation: line3-open var(--navTransition) forwards;
+			}
+		}
+	}
+}
+.c-ham-txt {
+	font-size: 1rem;
+	letter-spacing: normal;
+	margin-top: 1.1rem;
+}
+.p-hamburger {
+	width: 2.36rem;
+	height: 1.6rem;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	position: relative;
+	.c-line {
+		background-color: $border-color;
+		width: 100%;
+		height: 2px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		&:first-of-type {
+			top: 0;
+			animation: line1 var(--navTransition) forwards;
+		}
+		&:nth-of-type(2) {
+			animation: line2 var(--navTransition) forwards;
+		}
+		&:last-of-type {
+			top: 100%;
+			animation: line3 var(--navTransition) forwards;
+		}
+	}
+}
+
+:root {
+	--navTransition: 0.6s;
+}
+@keyframes line1 {
+	0% {
+		top: 50%;
+		transform: rotate(45deg);
+	}
+	50% {
+		transform: rotate(0);
+		top: 50%;
+	}
+	100% {
+		transform: rotate(0);
+		top: 0;
+	}
+}
+@keyframes line1-open {
+	0% {
+		transform: rotate(0);
+		top: 0;
+	}
+	50% {
+		transform: rotate(0);
+		top: 50%;
+	}
+	100% {
+		top: 50%;
+		transform: rotate(45deg);
+	}
+}
+@keyframes line2 {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes line2-open {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes line3 {
+	0% {
+		top: 50%;
+		transform: rotate(-45deg);
+	}
+	50% {
+		transform: rotate(0);
+		top: 50%;
+	}
+	100% {
+		transform: rotate(0);
+		top: 100%;
+	}
+}
+
+@keyframes line3-open {
+	0% {
+		transform: rotate(0);
+		top: 100%;
+	}
+	50% {
+		transform: rotate(0);
+		top: 50%;
+	}
+	100% {
+		top: 50%;
+		transform: rotate(-45deg);
+	}
+}
+
+.js-has-subnav .l-header__nav-link {
+	@include mq(m) {
+		padding-bottom: 0;
+	}
+}
+.js-has-subnav + .l-header__nav-item {
+	@include mq(m) {
+		margin-top: 1rem;
+	}
+}

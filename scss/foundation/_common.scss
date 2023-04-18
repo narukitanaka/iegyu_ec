@@ -1,0 +1,92 @@
+@charset "UTF-8";
+@use "./mixin" as *;
+@use "./setting" as *;
+/* ----------------------------------------------------------------------------------------------------
+*  基本情報
+* --------------------------------------------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+html,
+body {
+	height: 100%;
+}
+html {
+	font-size: 62.5%;
+	overflow-y: scroll;
+	@include mq(m) {
+		width: 100%;
+	}
+}
+
+body {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	width: 100%;
+	color: #232215;
+	letter-spacing: 0.2em;
+	min-width: calc($base-width + 3rem);
+	@include mq(m) {
+		min-width: inherit;
+	}
+	&.is-fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+	}
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+address,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+img,
+form {
+	margin: 0;
+	padding: 0;
+	border: none;
+	line-height: 100%;
+	list-style-type: none;
+	font-style: normal;
+	font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho",
+		serif;
+	line-height: 1.2;
+}
+* {
+	line-break: strict;
+	word-wrap: break-word;
+	box-sizing: border-box;
+}
+p {
+	line-height: 1.8;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+@media screen and (max-width: 767.98px) {
+	html {
+		font-size: 2.666vw;
+	}
+}
+@media (min-width: 768px) {
+	a[href*="tel:"] {
+		text-decoration: none;
+		cursor: default;
+		pointer-events: none;
+	}
+}

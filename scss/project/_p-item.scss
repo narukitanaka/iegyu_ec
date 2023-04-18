@@ -1,0 +1,348 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+// 並び替え
+.p-order-content {
+	margin-bottom: 2.9rem;
+	text-align: right;
+	.p-select-wrapper {
+		display: none;
+		border: 1px solid $border-color;
+		position: relative;
+		@include mq(m) {
+			display: inline-block;
+		}
+		&::after {
+			pointer-events: none;
+			content: "";
+			position: absolute;
+			top: 44%;
+			right: 1rem;
+			width: 0.6rem;
+			height: 0.6rem;
+			border-right: 1px solid $border-color;
+			border-bottom: 1px solid $border-color;
+			transform: translateY(-50%) rotate(45deg);
+		}
+	}
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: transparent;
+		border: none;
+		border-radius: 0;
+		font: inherit;
+		outline: none;
+		color: currentColor;
+		width: 100%;
+		font-size: 1.4rem;
+		padding: 0.8rem 3rem 0.8rem 1.5rem;
+	}
+	option {
+		width: 100%;
+	}
+}
+.p-order {
+	display: flex;
+	font-size: 1.6rem;
+	font-weight: $demibold;
+	align-items: center;
+	justify-content: flex-end;
+	@include mq(m) {
+		display: none;
+	}
+}
+.p-order__ttl {
+	background-color: #fff;
+	padding: 0.9rem 1.6rem;
+	border: 1px solid #707070;
+}
+.p-order__list {
+	display: flex;
+}
+.p-order__item {
+	margin-left: 2rem;
+	a {
+		color: currentColor;
+		text-decoration: none;
+		@include hover;
+	}
+}
+
+.p-merchandise-content {
+	padding: 5rem 0 20rem;
+	@include mq(m) {
+		padding: 2rem 0 8rem;
+	}
+	.p-cards {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: -8rem;
+		@include mq(m) {
+			display: block;
+			margin-top: -1rem;
+		}
+	}
+	.p-card {
+		width: 26rem;
+		margin: 8rem 1.3rem 0 0;
+		padding-bottom: 1rem;
+		@include mq(m) {
+			width: 100%;
+			margin: 5rem 0 0;
+		}
+		&:nth-of-type(4n) {
+			margin-right: 0;
+		}
+		a {
+			text-decoration: none;
+			color: currentColor;
+			@include hover;
+			display: block;
+			width: 100%;
+		}
+		.p-card__img-wrapper {
+			aspect-ratio: 260/240;
+			width: 100%;
+			overflow: hidden;
+			@include mq(m) {
+				aspect-ratio: 315/248;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.p-card-content {
+			width: 100%;
+		}
+		.p-card__body {
+			padding-top: 2.5rem;
+			font-weight: $demibold;
+			@include mq(m) {
+				padding-top: 0.7rem;
+			}
+		}
+		.c-ttl {
+			font-size: 1.6rem;
+			line-height: 1.4;
+		}
+		.c-txt {
+			font-size: 1.8rem;
+			line-height: 1.2;
+		}
+		.c-ttl + .c-txt {
+			margin-top: 2rem;
+			@include mq(m) {
+				margin-top: 0.8rem;
+			}
+		}
+	}
+}
+/* ----------------------------------------------------------------------------------------------------
+*	詳細ページ
+* --------------------------------------------------------------------------------------------------*/
+.c-detail-content {
+	padding: 2rem 0 16rem;
+	@include mq(m) {
+		padding: 2.5rem 0 8rem;
+	}
+}
+.p-merchandise-detail {
+	display: flex;
+	@include mq(m) {
+		display: block;
+	}
+}
+// 画像
+.p-merchandise__img-content {
+	width: 54.8rem;
+	flex-shrink: 0;
+	margin: 0 9.2rem 0 6rem;
+	@include mq(m) {
+		width: 100%;
+		margin: 0;
+	}
+}
+.p-merchandise__img-wrapper {
+	.swiper-slide {
+		.p-img-wrapper {
+			aspect-ratio: 548/629;
+			@include mq(m) {
+				aspect-ratio: 315/220;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+// サムネイル
+.thumb-list {
+	display: flex;
+	margin-top: 1.8rem;
+	flex-wrap: wrap;
+}
+.thumb-item {
+	width: 10rem;
+	height: 10rem;
+	margin: 1.2rem 1.2rem 0 0;
+	@include mq(m) {
+		width: 18%;
+		height: auto;
+		aspect-ratio: 1/1;
+		margin: 0.7rem 2.2% 0 0;
+	}
+	&:nth-of-type(5n) {
+		margin-right: 0;
+	}
+}
+.thumb-link {
+	display: block;
+	width: 100%;
+	height: 100%;
+	@include hover;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+// テキスト
+.p-merchandise__detail-content {
+	padding-top: 2rem;
+	letter-spacing: normal;
+	// 商品コード
+	.c-code {
+		font-size: 1.2rem;
+	}
+	// 商品カテゴリー
+	.c-category__list {
+		font-size: 1.4rem;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0.5rem -0.5rem 0;
+	}
+	.c-category__item {
+		margin: 0.5rem 0.5rem 0;
+	}
+	// 商品名
+	.c-merchandise__name {
+		margin-top: 2.5rem;
+		font-size: 2.5rem;
+		font-weight: normal;
+	}
+	// 価格
+	.c-price {
+		margin-top: 1rem;
+		font-size: 2rem;
+	}
+	.p-merchandise__infomation {
+		margin-top: 4rem;
+		width: 100%;
+		font-size: 1.4rem;
+		@include mq(m) {
+			margin-top: 3rem;
+		}
+		th {
+			font-weight: bold;
+			text-align: left;
+			padding: 0.5rem 1em 0.5rem 0;
+			white-space: nowrap;
+		}
+		td {
+			width: 100%;
+			padding: 0.5rem 0;
+		}
+	}
+	.p-btn-wrapper {
+		margin-top: 3.2rem;
+	}
+	.p-txt-block {
+		margin-top: 3rem;
+		.p-block__ttl {
+			display: flex;
+			align-items: center;
+			font-size: 1.8rem;
+			font-weight: $demibold;
+			margin-bottom: 0.6rem;
+			&::after {
+				content: "";
+				flex-grow: 1;
+				width: auto;
+				height: 1px;
+				background-color: #707070;
+				margin-left: 1rem;
+			}
+		}
+		p {
+			font-size: 1.4rem;
+		}
+		p + p {
+			margin-top: 1em;
+		}
+	}
+	//数量
+	.p-count {
+		margin-top: 5rem;
+		.c-ttl {
+			font-size: 1.8rem;
+		}
+	}
+	.p-select-wrapper {
+		font-size: 1.8rem;
+		width: 100%;
+		border: 1px solid $border-color;
+		position: relative;
+		background-color: #fff;
+		font-family: "Noto Sans JP", sans-serif;
+		margin-top: 1.4rem;
+		&::after {
+			pointer-events: none;
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: 2rem;
+			width: 0.6rem;
+			height: 0.6rem;
+			border-right: 1px solid $border-color;
+			border-bottom: 1px solid $border-color;
+			transform: translateY(-50%) rotate(45deg);
+		}
+		select {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			background: transparent;
+			border: none;
+			border-radius: 0;
+			outline: none;
+			color: currentColor;
+			padding: 1.6rem 3rem;
+			cursor: pointer;
+		}
+		select,
+		option {
+			font: inherit;
+			width: 100%;
+		}
+	}
+	// この商品について問い合わせる
+	.c-txt-inquiry {
+		display: inline-block;
+		color: currentColor;
+		text-decoration: underline;
+		@include hover;
+		font-size: 1.8rem;
+		margin-top: 3rem;
+		letter-spacing: normal;
+		@include mq(m) {
+			font-size: 1.5rem;
+		}
+	}
+}

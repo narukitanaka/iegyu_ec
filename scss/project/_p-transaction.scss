@@ -1,0 +1,70 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+/* ----------------------------------------------------------------------------------------------------
+*	特定商取引法
+* --------------------------------------------------------------------------------------------------*/
+.p-transaction-content {
+  padding: 6.5rem 0 14.5rem;
+  @include mq(m) {
+    padding: 7rem 0 2rem;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 6.4rem;
+    text-align: center;
+    font-weight: normal;
+    @include mq(m) {
+      margin-bottom: 1rem;
+    }
+  }
+  table {
+    width: 100%;
+    border-collapse:collapse;
+    tr {
+      border-bottom: 1px solid #707070;
+      @include mq(m) {
+        border-bottom: none;
+      }
+      th  {
+        width: 15%;
+        font-size: 1.6rem;
+        line-height: 1.7;
+        padding: 3rem 0;
+        text-align: start;
+        vertical-align: top;
+        @include mq(m) {
+          width: 26%;
+          font-size: 1.4rem;
+          padding: 2rem 0;
+          border-bottom: 1px solid #707070;
+          line-height: 1.7;
+        }
+        // br {
+        //   content: "";
+        //   display: block;
+        //   margin-bottom: 10px;
+        //   @include mq(m) {
+        //     margin-bottom: 5px;
+        //   }
+        // }
+      }
+      td {
+        font-size: 1.6rem;
+        padding: 3rem 0 3rem 4.2rem;
+        line-height: 1.7;
+        vertical-align: top;
+        @include mq(m) {
+          width: 72%;
+          font-size: 1.4rem;
+          border-bottom: 1px solid #707070;
+          padding: 2rem 0 2rem 1rem;
+        }
+        // br {
+        //   content: "";
+        //   display: block;
+        //   margin-bottom: 10px;
+        // }
+      }
+    }
+  }
+}

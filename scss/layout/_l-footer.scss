@@ -1,0 +1,257 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+
+.l-footer {
+	background: url(#{$imgPath}common/bg_logo_w.png) $border-color no-repeat top -9rem right calc(50% - 57rem) / 66rem auto;
+	position: relative;
+	@include mq(m) {
+		background-size: 50rem auto;
+		background-position: bottom 37.8rem left 2rem;
+	}
+	* {
+		color: #fff;
+	}
+}
+.l-footer__inner {
+	max-width: $base-width;
+	padding: 5rem 1.5rem 7rem;
+	box-sizing: content-box;
+	margin: 0 auto;
+	@include mq(m) {
+		padding: 5rem 3rem 2rem;
+	}
+}
+.l-footer-content {
+	display: flex;
+	margin: 0 -2%;
+	@include mq(m) {
+		display: block;
+	}
+}
+.l-footer-content__list {
+	width: 21%;
+	margin: 0 2%;
+	@include mq(m) {
+		width: auto;
+		margin: 0;
+		display: grid;
+		grid-auto-columns: 1fr;
+		grid-auto-rows: 1fr;
+		grid-template-columns: auto auto;
+		grid-template-rows: auto auto;
+		gap: 0px 0px;
+		grid-template-areas:
+			"icn txt"
+			"img img";
+		&:nth-of-type(n + 2) {
+			margin-top: 4rem;
+		}
+	}
+	.c-icn {
+		grid-area: icn;
+		background-color: #fff;
+		display: grid;
+		place-content: center;
+		width: 8.4rem;
+		height: 8.4rem;
+		border-radius: 100px;
+		margin: 0 auto;
+		flex-shrink: 0;
+		@include mq(m) {
+			width: 5.8rem;
+			height: 5.8rem;
+			margin: 1.5rem 1.5rem 0 0;
+		}
+	}
+	.p-txt-wrapper {
+		grid-area: txt;
+		margin-top: 1.5rem;
+	}
+	.c-ttl {
+		font-size: 1.5rem;
+		font-weight: normal;
+		text-align: center;
+		letter-spacing: normal;
+		@include mq(m) {
+			text-align: left;
+			letter-spacing: 0.05em;
+		}
+	}
+	.c-txt {
+		margin-top: 0.5rem;
+		font-size: 1.3rem;
+	}
+	.c-img {
+		grid-area: img;
+		display: inline-block;
+		margin-top: 1rem;
+		@include mq(m) {
+			margin-right: calc(50% - 50vw);
+		}
+	}
+	&.p-list01 {
+		.c-icn img {
+			width: 3.6rem;
+			@include mq(m) {
+				width: 2.4rem;
+			}
+		}
+	}
+	&.p-list02 {
+		.c-icn img {
+			width: 4.5rem;
+			@include mq(m) {
+				width: 3.2rem;
+			}
+		}
+	}
+	&.p-list03 {
+		.c-icn img {
+			width: 4.05rem;
+			@include mq(m) {
+				width: 2.8rem;
+			}
+		}
+	}
+	&.p-list04 {
+		.c-icn img {
+			width: 3.76rem;
+			@include mq(m) {
+				width: 2.6rem;
+			}
+		}
+	}
+}
+// フッター下部
+.l-footer__bottom {
+	margin-top: 4.7rem;
+	border-top: 1px solid #d4d4d4;
+	padding-top: 5rem;
+	display: grid;
+	grid-auto-columns: 1fr;
+	grid-auto-rows: 1fr;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: 1fr auto;
+	gap: 0px 0px;
+	grid-template-areas:
+		"logo-add nav"
+		"logo-add copyright";
+	@include mq(m) {
+		display: block;
+		margin-top: 4.5rem;
+		padding-top: 2.9rem;
+	}
+}
+// ロゴと住所のwrapper
+.l-footer__logo-add {
+	display: flex;
+	grid-area: logo-add;
+	@include mq(m) {
+		margin-top: 5rem;
+		display: block;
+	}
+}
+// ロゴ
+.l-footer__logo {
+	width: 18.7rem;
+	flex-shrink: 0;
+	margin-right: 4.6rem;
+	@include mq(m) {
+		width: 16.5rem;
+	}
+}
+// 住所
+.l-footer__add {
+	@include mq(m) {
+		margin-top: 1rem;
+	}
+	.c-txt {
+		font-size: 1.3rem;
+	}
+	.c-tel {
+		a {
+			text-decoration: none;
+		}
+		@include mq(m) {
+			&::after {
+				content: " /";
+			}
+		}
+	}
+}
+// フッターナビゲーション
+.l-footer__nav {
+	grid-area: nav;
+	margin-left: auto;
+}
+.l-footer__nav-list {
+	display: flex;
+	@include mq(m) {
+		flex-wrap: wrap;
+	}
+}
+.l-footer__nav-item {
+	@include mq(m) {
+		&:nth-of-type(odd) {
+			width: 44%;
+		}
+		&:nth-of-type(even) {
+			width: 56%;
+		}
+	}
+	&::after {
+		content: "|";
+		@include mq(m) {
+			display: none;
+		}
+	}
+	&.c-link03 {
+		@include mq(pc) {
+			order: 1;
+		}
+	}
+	&.c-link02 {
+		@include mq(pc) {
+			order: 2;
+		}
+	}
+	&.c-link04 {
+		@include mq(pc) {
+			order: 3;
+		}
+		&::after {
+			display: none;
+		}
+		.l-footer__nav-link {
+			padding-right: 0;
+		}
+	}
+}
+.l-footer__nav-link {
+	font-size: 1.3rem;
+	text-decoration: none;
+	color: currentColor;
+	@include hover;
+	padding: 1em;
+	@include mq(m) {
+		display: block;
+		font-size: 1.4rem;
+		letter-spacing: normal;
+		position: relative;
+		padding: 0.5em 1em;
+		&::before {
+			content: "-";
+		}
+	}
+}
+.c-copyright {
+	margin-top: auto;
+	grid-area: copyright;
+	font-size: 1rem;
+	text-align: right;
+	@include mq(m) {
+		letter-spacing: normal;
+		text-align: left;
+		margin-top: 3rem;
+	}
+}

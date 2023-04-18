@@ -1,0 +1,139 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+.p-mega-menu {
+	background-color: #e3e3e5;
+	width: 100%;
+	position: absolute;
+	top: 10rem;
+	left: 0;
+	right: 0;
+	padding: 4rem 0 5.2rem;
+	box-shadow: 0px 0px 20px -16px rgba(0, 0, 0, 0.8);
+	display: none;
+	font-weight: $demibold;
+	@include mq(m) {
+		background-color: transparent;
+		padding: 0;
+		display: block;
+		position: static;
+		box-shadow: none;
+	}
+	&.is-megamenu-show {
+		display: block;
+	}
+}
+.p-mega-menu__content {
+	display: flex;
+	width: 92rem;
+	margin: 0 auto;
+	justify-content: space-between;
+	@include mq(m) {
+		width: auto;
+		display: block;
+	}
+}
+.p-mega-menu__block {
+	flex-shrink: 0;
+	@include mq(m) {
+		font-size: 1.5rem;
+	}
+	dt {
+		border-bottom: 1px solid $border-color;
+		padding-bottom: 2rem;
+		margin-bottom: 2rem;
+		@include mq(m) {
+			margin: 0;
+			padding: 2rem 0 1rem;
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				width: 0.5rem;
+				height: 0.5rem;
+				border-right: 1px solid $border-color;
+				border-bottom: 1px solid $border-color;
+				top: 60%;
+				right: 1rem;
+				transform: translateY(-50%) rotate(45deg);
+				transition: $duration;
+			}
+			&.is-acd-open {
+				&::after {
+					transform: translateY(-50%) rotate(225deg);
+				}
+			}
+		}
+		.c-icn {
+			width: 2.2rem;
+			position: relative;
+			top: 0.2rem;
+			margin-right: 1rem;
+		}
+	}
+
+	dd {
+		@include mq(m) {
+			display: none;
+		}
+	}
+}
+.p-mega-menu__block.c-block01 {
+	width: 46.8rem;
+	@include mq(m) {
+		width: auto;
+	}
+}
+.p-mega-menu__block.c-block02 {
+	width: 34.9rem;
+	@include mq(m) {
+		width: auto;
+	}
+}
+.p-mega-menu__nav-list {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1.5rem;
+	@include mq(m) {
+		display: block;
+	}
+	&.c-col--2 {
+		.p-mega-menu__nav-item {
+			width: 51%;
+			@include mq(m) {
+				width: auto;
+			}
+		}
+		.p-mega-menu__nav-item:nth-of-type(2n) {
+			width: 49%;
+			@include mq(m) {
+				width: auto;
+			}
+		}
+	}
+	&.c-col--3 {
+		.p-mega-menu__nav-item {
+			width: 30%;
+			@include mq(m) {
+				width: auto;
+			}
+		}
+		.p-mega-menu__nav-item:nth-of-type(3n) {
+			width: 40%;
+			@include mq(m) {
+				width: auto;
+			}
+		}
+	}
+}
+
+.p-mega-menu__nav-list .p-mega-menu__nav-item.c-width--large {
+	width: 100%;
+}
+.p-mega-menu__nav-link {
+	color: currentColor;
+	text-decoration: none;
+	display: block;
+	padding: 1.3rem 0;
+	letter-spacing: 0.02em;
+	@include hover;
+}

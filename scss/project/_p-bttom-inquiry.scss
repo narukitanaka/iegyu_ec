@@ -1,0 +1,117 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+.p-bottom-inquiry {
+	padding: 6rem 0 8.5rem;
+	@include mq(m) {
+		padding: 4rem 0 3rem;
+	}
+	.p-section__ttl {
+		@include mq(m) {
+			font-size: 2.5rem;
+		}
+		.c-en {
+			@include mq(m) {
+				font-size: 1.1rem;
+			}
+		}
+	}
+}
+.p-bottom-inquiry-content {
+	display: flex;
+	margin-top: 4.5rem;
+	@include mq(m) {
+		display: block;
+	}
+	a {
+		color: currentColor;
+		text-decoration: none;
+		@include hover;
+	}
+}
+.p-bottom-inquiry__block {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	@include mq(m) {
+		width: auto;
+	}
+
+	// アイコン
+	.c-icn {
+		width: 8.4rem;
+		height: 8.4rem;
+		border-radius: 100px;
+		border: 1px solid $border-color;
+		display: grid;
+		place-content: center;
+		margin-right: 2.4rem;
+		flex-shrink: 0;
+		@include mq(m) {
+			width: 6.4rem;
+			height: 6.4rem;
+			margin-right: 1.7rem;
+		}
+	}
+	// 電話番号
+	&.p-tel {
+		position: relative;
+		border-right: 1px solid $border-color;
+		@include mq(m) {
+			border-right: none;
+			padding-bottom: 3rem;
+			border-bottom: 1px solid $border-color;
+		}
+		.c-ttl {
+			font-size: 2.6rem;
+			line-height: 1;
+			@include mq(m) {
+				font-size: 1.5rem;
+			}
+		}
+		.c-hour {
+			font-size: 1.8rem;
+			line-height: 1;
+			margin-top: 0.5rem;
+			@include mq(m) {
+				font-size: 1.1rem;
+			}
+		}
+		.c-icn {
+			img {
+				width: 3.87rem;
+				@include mq(m) {
+					width: 2.9rem;
+				}
+			}
+		}
+		.c-tel-num {
+			font-size: 4.8rem;
+			line-height: 1;
+			@include mq(m) {
+				font-size: 3.1rem;
+			}
+		}
+	}
+	// フォーム
+	&.p-form {
+		padding-left: 12.3rem;
+		@include mq(m) {
+			padding-top: 3rem;
+			padding-left: 0;
+		}
+		.c-icn {
+			img {
+				width: 3.3rem;
+				@include mq(m) {
+					width: 2.6rem;
+				}
+			}
+		}
+		.c-txt {
+			font-size: 2.4rem;
+			@include mq(m) {
+				font-size: 1.9rem;
+			}
+		}
+	}
+}

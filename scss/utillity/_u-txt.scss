@@ -1,0 +1,21 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+
+.u-pc {
+	display: block;
+	@include mq(m) {
+		display: none;
+	}
+}
+.u-sp {
+	display: none;
+	@include mq(m) {
+		display: block;
+	}
+}
+.u-align--center {
+	text-align: center;
+}
+.u-txtcolor--white {
+	color: #fff;
+}

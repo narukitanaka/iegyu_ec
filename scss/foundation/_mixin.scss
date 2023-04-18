@@ -1,0 +1,74 @@
+@use "./setting" as *;
+/* Sass Document */
+@function get_vw($size, $viewport: 769) {
+    $rate: 100 / $viewport;
+    //@return $rate * $size * 1vw;
+    $fz_value: $rate * $size;
+    @return round-decimal($fz_value, 1);
+}
+
+// Round (四捨五入)
+@function round-decimal($number, $digits: 0) {
+    @return to-fixed($number, $digits, "round");
+}
+@function to-fixed($number, $digits: 0, $round: "round") {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+    @for $i from 1 through $digits {
+        $n: $n * 10;
+    }
+    @if $round == "round" {
+        @return round($number * $n) / $n;
+    } @else if $round == "ceil" {
+        @return ceil($number * $n) / $n;
+    } @else if $round == "floor" {
+        @return floor($number * $n) / $n;
+    } @else {
+        @warn '#{ $round } is undefined keyword.';
+        @return $number;
+    }
+}
+@mixin fz_vw($font_size: 10) {
+    //font-size: $font_size * 1px;
+    font-size: get_vw($font_size * 1vw);
+}
+
+$breakpoints: (
+    "s": "screen and (max-width: 575px)",
+    "m": "screen and (max-width: 767.98px)",
+    "pc": "screen and (min-width: 768px)",
+    "l": "screen and (max-width: 991px)",
+    "xl": "screen and (max-width: 1199px)",
+) !default;
+
+@mixin mq($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+@mixin hover {
+    @media (any-hover: hover) {
+        transition: $duration;
+        &:hover {
+            opacity: $opacity;
+        }
+    }
+}
+@function vw($screenSize, $px) {
+    @return calc(($px / $screenSize) * 100) * 1vw;
+}
+@function pct($screenSize, $size) {
+    @return calc(($size / $screenSize) * 100) * 1%;
+}

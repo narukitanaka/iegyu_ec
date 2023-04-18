@@ -1,0 +1,30 @@
+@use "../foundation/setting" as *;
+@use "../foundation/mixin" as *;
+
+.p-gager__list {
+	display: flex;
+	justify-content: center;
+	margin-top: 9rem;
+	@include mq(m) {
+		margin-top: 5rem;
+	}
+}
+.p-pager__item {
+	margin: 0 0.5rem;
+	a {
+		color: currentColor;
+		text-decoration: none;
+		@include hover;
+	}
+}
+.p-pager__link {
+	width: 4.2rem;
+	height: 4.2rem;
+	font-size: 1.7rem;
+	display: grid;
+	place-content: center;
+}
+.p-pager__link--current {
+	border-radius: 100px;
+	border: 1px solid $border-color;
+}
